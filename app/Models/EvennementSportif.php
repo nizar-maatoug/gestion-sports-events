@@ -8,4 +8,25 @@ use Illuminate\Database\Eloquent\Model;
 class EvennementSportif extends Model
 {
     use HasFactory;
+
+    public function organisateur(){
+
+        return $this->belongsTo(User::class);
+    }
+
+    public function categories(){
+
+        return $this->hasMany(Categorie::class);
+
+    }
+
+    public function athletes(){
+
+        return $this->hasManyThrough(Athlete::class,Categorie::class);
+
+    }
+
+    public function commentaires(){
+        return $this->morphMany(Commentaire::class,'commentable');
+    }
 }

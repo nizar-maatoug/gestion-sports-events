@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class athlete extends Model
 {
     use HasFactory;
+
+    public function categorie(){
+        return $this->belongsTo(Categorie::class);
+    }
+
+    public function equipe(){
+        return $this->belongsTo(Equipe::class);
+    }
+
+    public function commentaires(){
+        return $this->morphMany(Commentaire::class, 'commentable');
+    }
 }
