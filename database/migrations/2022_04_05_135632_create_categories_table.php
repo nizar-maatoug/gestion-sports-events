@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nom',100);
             $table->enum('sexe',['HOMME','FEMME']);
             $table->string('poids',20);
+            $table->foreignId('evennement_sportif_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
