@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
     {
         User::factory(2)
         ->has(EvennementSportif::factory()
-                ->count(1)
+                ->count(3)
                 ->has(Categorie::factory()
                         ->count(3)
                         ->state(new Sequence(

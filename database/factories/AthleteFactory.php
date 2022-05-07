@@ -4,6 +4,8 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+use Str;
+
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\athlete>
  */
@@ -18,11 +20,12 @@ class AthleteFactory extends Factory
     {
         $width=200;
         $height=200;
-        $path=$this->faker->image('storage/images',$width,$height,'person',true,true,'person',false);
+        $path=$this->faker->image('storage/app/public/images',$width,$height,'person',true,true,'person',false);
         return [
             'nom' => $this->faker->firstName(),
             'prenom' => $this->faker->lastName(),
-            'photo' => $path,//$this->faker->imageUrl(360,360,true)
+            'photo' => $path='storage/'.$path,//$this->faker->imageUrl(360,360,true)
+            'urlPhoto' => config('app.url').'/storage/'.Str::after($path, 'public/')
         ];
     }
 }

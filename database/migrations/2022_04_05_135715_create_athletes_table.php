@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('nom',60);
             $table->string('prenom',60);
             $table->enum('sexe',['HOMME','FEMME']);
-            $table->string('photo');
+            $table->string('photo')->nullable();
+            $table->string('urlPhoto')->nullable();
             $table->integer('score')->default(0)->unsigned();
             $table->foreignId('categorie_id')->nullable()->constrained()->cascadeOnDelete();
             $table->foreignId('equipe_id')->nullable()->constrained()->nullOnDelete();
