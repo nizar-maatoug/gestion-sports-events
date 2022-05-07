@@ -9,14 +9,19 @@
                     <div class="card-body">
                     <h5 class="card-title">{{$eventSportif->nom}}</h5>
                     <p class="card-text">{{$eventSportif->description}}</p>
-                    <a href="#" class="btn btn-primary">Détails</a>
+                    <a href="{{route('eventSportif.show',[$eventSportif])}}" class="btn btn-primary">Détails</a>
                     </div>
                 </div>
 
             @endforeach
         </div>
-
-
     </div>
+
+
+    {!!$eventSportifs->links()!!}
+
+
+
+
 
 @endsection

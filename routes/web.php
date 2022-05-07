@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\{
-    HomeController
+    CategorieController,
+    HomeController,EvennementSportifController
 };
 use Illuminate\Support\Facades\Route;
 
@@ -21,4 +22,9 @@ use Illuminate\Support\Facades\Route;
 }); */
 
 Route::get('/',HomeController::class)->name('home');
+
+Route::get('eventsportif/{eventSportif}', [EvennementSportifController::class, 'show'])->name('eventSportif.show');
+
+Route::get('categories/{eventSportif}',[CategorieController::class,'index'])->name('categories.index');
+
 

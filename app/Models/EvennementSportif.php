@@ -9,6 +9,8 @@ class EvennementSportif extends Model
 {
     use HasFactory;
 
+    protected $perPage = 2;
+
     public function organisateur(){
 
         return $this->belongsTo(User::class);
