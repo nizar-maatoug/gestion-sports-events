@@ -1,6 +1,20 @@
 @extends('layouts.main')
 
 @section('content')
+    <a type="button" class="btn btn-primary" href="{{route('events.index')}}">Retour</a>
+    @if(Auth::user()->id === $eventSportif->user_id)
+        <a type="button" class="btn btn-primary" href="{{route('events.edit',[$eventSportif])}}">Modifier</a>
+        <form style="display: inline;" action="{{ route('events.destroy', [$eventSportif]) }}" method="post">
+             @csrf
+            @method('DELETE')
+             <button class="btn btn-danger" type="submit">
+                 Supprimer
+             </button>
+        </form>
+
+
+    @endif
+
     <div class="card m-3 " style="max-width: 80%; ">
         <div class="row g-0">
         <div class="col-md-4">

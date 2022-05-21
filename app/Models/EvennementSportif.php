@@ -9,11 +9,13 @@ class EvennementSportif extends Model
 {
     use HasFactory;
 
+    protected $guarded=[];
+
     protected $perPage = 2;
 
     public function organisateur(){
 
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function categories(){

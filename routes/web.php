@@ -23,8 +23,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',HomeController::class)->name('home');
 
-Route::get('eventsportif/{eventSportif}', [EvennementSportifController::class, 'show'])->name('eventSportif.show');
+//Route::get('eventsportif/{eventSportif}', [EvennementSportifController::class, 'show'])->name('eventSportif.show');
 
 Route::get('categories/{eventSportif}',[CategorieController::class,'index'])->name('categories.index');
+
+
+Route::resource('events',EvennementSportifController::class);
 
 
