@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.app')
 
 @section('content')
     <a type="button" class="btn btn-primary" href="{{route('events.index')}}">Retour</a>
