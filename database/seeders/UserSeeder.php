@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\athlete;
+use App\Models\Athlete;
 use App\Models\Categorie;
 use App\Models\Equipe;
 use App\Models\EvennementSportif;
@@ -39,7 +39,7 @@ class UserSeeder extends Seeder
                             ['poids' => '-50 KG'],
                             ['poids' => '+50 KG'],
                         ))
-                        ->has(athlete::factory()
+                        ->has(Athlete::factory()
                                 ->count(2)
                                 ->state(function (array $attributes, Categorie $categorie) {
                                     return ['sexe' => $categorie->sexe];
