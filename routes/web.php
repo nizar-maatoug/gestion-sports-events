@@ -28,6 +28,27 @@ Route::get('/',HomeController::class)->name('home');
 Route::get('categories/{eventSportif}',[CategorieController::class,'index'])->name('categories.index');
 
 
-Route::resource('events',EvennementSportifController::class);
+/**
+ * Middleware: Méthode 1
+ */
+/* Route::resource('events',EvennementSportifController::class, ['except' => ['show']])->middleware('auth');
 
+Route::resource('events',EvennementSportifController::class, ['only' => ['show']]); */
 
+/**
+ * Middleware: Méthode 2
+ */
+/* Route::middleware(['auth'])->group(function () {
+    Route::resource('events',EvennementSportifController::class, ['except' => ['show']]);
+    //...les autres routes authentifiés
+});
+Route::resource('events',EvennementSportifController::class, ['only' => ['show']]); */
+
+/**
+ * Middleware: Méthode 3
+ */
+Route::middleware(['auth'])->group(function () {
+    Route::resource('events',EvennementSportifController::class)->except('show');
+    //...les autres routes authentifiés
+});
+Route::resource('events',EvennementSportifController::class)->only('show');
