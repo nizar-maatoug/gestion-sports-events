@@ -18,6 +18,7 @@ class EvennementSportifResource extends JsonResource
             'id' => $this->id,
             'nom' => $this->nom,
             'description' => $this->description,
+            'lieu' => $this->lieu,
             'urlPoster' => $this->urlPoster,
             'dateDebut' => $this->dateDebut,
             'dateFin' => $this->dateFin,
