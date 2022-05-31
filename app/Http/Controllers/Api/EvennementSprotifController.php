@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\EvennementSprotifRequest;
 use App\Http\Resources\EvennementSportifResource;
 use App\Models\EvennementSportif;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -19,13 +20,14 @@ class EvennementSprotifController extends Controller
    
     public function index()
     {
-        return new EvennementSportifResource(EvennementSportif::paginate());
+       // return new EvennementSportifResource(EvennementSportif::all());
+       return EvennementSportifResource::collection(EvennementSportif::paginate());
     }
 
   
     public function store(EvennementSprotifRequest $request)
     {
-        //$user=User::find(1);
+       // $user=User::find(1);
 
         $user=Auth::user();
 
